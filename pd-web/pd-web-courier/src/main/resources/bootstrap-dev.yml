@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    nacos:
+      username: tms
+      password: itheima123
+      discovery:
+        server-addr: 192.168.137.231:8449
+        group: pinda-tms
+        namespace: 9bfe4695-d3e1-446c-a382-590193f92cc1
+      config:
+        server-addr: 192.168.137.231:8449
+        file-extension: yml
+        group: pinda-tms
+        namespace: 9bfe4695-d3e1-446c-a382-590193f92cc1
+  # jackson时间格式化
+  jackson:
+    time-zone: ${spring.jackson.time-zone}
+    date-format: ${spring.jackson.date-format}
+  servlet:
+    multipart:
+      max-file-size: ${spring.servlet.multipart.max-file-size}
+      max-request-size: ${spring.servlet.multipart.max-request-size}
+      enabled: ${spring.servlet.multipart.enabled}
