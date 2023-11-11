@@ -43,4 +43,22 @@ public class PdTruckTypeGoodsTypeServiceImpl extends ServiceImpl<PdTruckTypeGood
         }
         return baseMapper.selectList(lambdaQueryWrapper);
     }
+
+    @Override
+    public void delete(String truckTypeId, String goodsTypeId) {
+        LambdaQueryWrapper<PdTruckTypeGoodsType> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        boolean canExecute = false;
+        if (StringUtils.isNotEmpty(truckTypeId)) {
+            lambdaQueryWrapper.eq(PdTruckTypeGoodsType::getTruckTypeId, truckTypeId);
+            canExecute = true;
+        }
+        if (StringUtils.isNotEmpty(goodsTypeId)) {
+            lambdaQueryWrapper.eq(PdTruckTypeGoodsType::getTruckTypeId, goodsTypeId);
+            canExecute = true;
+        }
+        if (canExecute) {
+            baseMapper.delete(lambdaQueryWrapper);
+        }
+
+    }
 }

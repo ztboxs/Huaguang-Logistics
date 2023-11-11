@@ -28,4 +28,11 @@ public interface IPdTruckTypeGoodsTypeService  extends IService<PdTruckTypeGoods
      */
     List<PdTruckTypeGoodsType> findAll(String truckTypeId, String goodsTypeId);
 
+    /**
+     * 删除关联关系
+     *
+     * @param truckTypeId 车辆类型id
+     * @param goodsTypeId 货物类型id
+     */
+    void delete(String truckTypeId, String goodsTypeId);
 }

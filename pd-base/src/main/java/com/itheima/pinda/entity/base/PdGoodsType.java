@@ -6,6 +6,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 /**
@@ -30,6 +33,7 @@ public class PdGoodsType {
      * 货物类型名称
      */
     @ApiModelProperty(value = "货物类型名称")
+    @NotNull
     private String name;
     /**
      * 默认重量，单位：千克
@@ -50,6 +54,9 @@ public class PdGoodsType {
      * 状态 0：禁用 1：正常
      */
     @ApiModelProperty(value = "状态 0：禁用 1：正常")
+    @NotNull
+    @Max(value = 1)
+    @Min(value = 0)
     private Integer status;
 
 }
